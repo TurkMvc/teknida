@@ -1,0 +1,84 @@
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+    font-size: 13px;
+    font-style: normal;
+    text-transform: lowercase;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+.solframe {
+    background-color: #ffffff;
+    border-top-width: 0;
+    top: 140px;
+    float: left;
+    padding: 5px;
+    position: fixed;
+    border: 1px;
+    width: 280px;
+}
+#solframeic {
+
+    align: center;
+    float: left;
+    width: 100%;
+    padding-top: 10px;
+    margin: auto;
+}
+#solframetop {
+    float: left;
+    border: 1px solid;
+    width: 100%;
+    margin: auto;
+    position: relative;
+}
+
+.icerik {
+    float: right;
+    margin-left: 300px;
+}
