@@ -40,7 +40,7 @@ Route::get('/entry', function(){
 
 
 Route::get('/', function () {
-    return view('layouts./app');
+    return view('teknida');
 });
 
 Auth::routes();
