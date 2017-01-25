@@ -38,9 +38,12 @@ use App\Category;
                 }
             });
 
+Route::get('/other', 'TopicController@index');
+
+
 
 Route::get('/', function () {
-    return view('teknida');
+    return view('layouts.topic');
 });
 
 Auth::routes();

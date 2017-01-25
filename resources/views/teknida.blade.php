@@ -21,7 +21,7 @@
     </head>
     <body>
 <!-- navbar -->
-        <nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse ">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -89,16 +89,16 @@
                     </ul>
                     <div class="tab-content text-left">
                         <div id="home" class="tab-pane fade in active">
-                            @php $current_page = 1;
-                            $entryler = App\Entry::all();
-                            @endphp
 
-                             @php  $entry = DB::table('topics')
-                                ->select('name')
-                                ->orderBy('created_at', 'desc')
-                                ->get();
-                                '<br>';
-                                echo $entry ;@endphp
+
+                            @php
+                            $current_page = 1;
+                            $topicler = \App\Topic::all();
+
+                            foreach ($topicler as $topic) {
+                                echo $topic->name . '<br>' ;
+                            }
+                            @endphp
                             <ul class="pager">
                                 <li class="previous @php echo $current_page == 1 ? "disabled":"" @endphp ">&larr; daha yeni</li>
                                 <li class="next">daha eski &rarr;</li>
