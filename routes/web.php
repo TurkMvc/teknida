@@ -16,27 +16,27 @@ use App\Entry;
 use App\Topic;
 use App\Category;
 
-Route::get('/user', function (){
-    $user = User::all();
+            Route::get('/user', function (){
+                $user = User::all();
 
-    return $user;
-});
+                return $user;
+            });
 
-Route::get('/entry', function(){
-   /*
-    $entryler = User::find(1)->userEntry;
+            Route::get('/entry', function(){
+               /*
+                $entryler = User::find(1)->userEntry;
 
-    foreach ($entryler as $entry){
-        echo $entry->content . '<br>';
-    }
-   */
+                foreach ($entryler as $entry){
+                    echo $entry->content . '<br>';
+                }
+               */
 
-   $entryler = Entry::all();
+               $entryler = Entry::all();
 
-    foreach ($entryler as $entry) {
-        echo $entry->content .  '-' . $entry->entryUser->username . '<br>' ;
-    }
-});
+                foreach ($entryler as $entry) {
+                    echo $entry->content .  '-' . $entry->entryUser->username . '<br>' ;
+                }
+            });
 
 
 Route::get('/', function () {

@@ -1,5 +1,7 @@
-@extends('layouts.app')
-
+@extends('teknida')
+    <!--
+        @todo email sistemi aktif olunca database e göre düzenlenecek!!!
+    -->
 <!-- Main Content -->
 @section('content')
 <div class="container">
