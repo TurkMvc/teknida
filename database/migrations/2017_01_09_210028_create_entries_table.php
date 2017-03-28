@@ -17,7 +17,6 @@ class CreateEntriesTable extends Migration
             $table->increments('id');
             $table->integer('userid')->unsigned();
             $table->integer('topicid')->unsigned();
-            $table->string('content',200);
             $table->integer('like')->default(0);
             $table->integer('unlike')->default(0);
             $table->dateTime('created_at');
