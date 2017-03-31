@@ -40,15 +40,16 @@ use App\Category;
 
 Route::get('/other', 'TopicController@index');
 
-
+Auth::routes();
 
 Route::get('/', function () {
-    return view('layouts.topic');
+    return view('layouts.index');
 });
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::post('/entry-Olustur','EntryController@entryOlustur');
 
 
 
