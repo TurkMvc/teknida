@@ -14,10 +14,10 @@ class CreateEntryTextTable extends Migration
     public function up()
     {
         Schema::create('textEntries', function (Blueprint $table) {
-            $table->integer('entryid');
+            $table->integer('id')->unsigned();
             $table->string('content',255);
-            $table->foreign('entryid')
-                ->references('id')->on('entry')
+            $table->foreign('id')
+                ->references('id')->on('entries')
                 ->onDelete('cascade');
         });
     }

@@ -22,7 +22,7 @@ class CreateUserMessegesTable extends Migration
     }
     public function down()
     {
-        Schema::drop('user_messages');
+        Schema::dropIfExists('user_messages');
     }
 }
 

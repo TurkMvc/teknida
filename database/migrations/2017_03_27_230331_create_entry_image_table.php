@@ -14,10 +14,10 @@ class CreateEntryImageTable extends Migration
     public function up()
     {
         Schema::create('imageEntries', function (Blueprint $table) {
-            $table->integer('entryid');
+            $table->integer('id')->unsigned();
             // SENDFILE MI YOKSA LOADFILE mı araştırma yap   $table-> ;
-            $table->foreign('entryid')
-                ->references('id')->on('entry')
+            $table->foreign('id')
+                ->references('id')->on('entries')
                 ->onDelete('cascade');
         });
     }

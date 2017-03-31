@@ -19,11 +19,11 @@ class CreateEntriesTable extends Migration
             $table->integer('topicid')->unsigned();
             $table->integer('like')->default(0);
             $table->integer('unlike')->default(0);
+            $table->integer('reply_id')->unsigned();
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
             $table->foreign('userid')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
+                ->references('id')->on('users');
             $table->foreign('topicid')
                 ->references('id')->on('topics')
                 ->onDelete('cascade');
