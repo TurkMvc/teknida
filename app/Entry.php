@@ -2,12 +2,15 @@
 
 namespace App;
 
+use App\Providers\AuthServiceProvider;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Entry extends Model
 {
+    protected $table = 'entries';
     protected $fillable = [
-        'content'
+        'content','userid'
     ];
 
     protected $visible = [
@@ -22,6 +25,5 @@ class Entry extends Model
         return $this->belongsTo('App\Topic' , 'topicid');
     }
 
-    /*ENTEY REPLY bağlantısını BETA kodlu kağııtan yap. usermessage ile aynı zaman.
-     * */
+
 }
