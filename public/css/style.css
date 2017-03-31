@@ -82,3 +82,15 @@ html, body {
     float: right;
     margin-left: 300px;
 }
+
+#entrypanel{
+    width: 80%;
+    background-color: #1f648b;
+}
+#entryolustur{
+
+    width: 80%;
+    background-color: #1f648b;
+    padding-left: 10px;
+    padding-right: 10px;
+}
