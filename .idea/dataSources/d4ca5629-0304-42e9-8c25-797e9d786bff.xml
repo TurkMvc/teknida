@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="teknida@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="teknida">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="blog"/>
+    <schema id="4" parent="1" name="faecober"/>
+    <schema id="5" parent="1" name="homestead"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="performance_schema"/>
+    <schema id="9" parent="1" name="sys"/>
+    <table id="10" parent="2" name="categories"/>
+    <table id="11" parent="2" name="entries"/>
+    <table id="12" parent="2" name="imageEntries"/>
+    <table id="13" parent="2" name="migrations"/>
+    <table id="14" parent="2" name="pagePosts"/>
+    <table id="15" parent="2" name="password_resets"/>
+    <table id="16" parent="2" name="profilePage"/>
+    <table id="17" parent="2" name="textEntries"/>
+    <table id="18" parent="2" name="topics"/>
+    <table id="19" parent="2" name="user_messages"/>
+    <table id="20" parent="2" name="user_subscribes"/>
+    <table id="21" parent="2" name="users"/>
+    <table id="22" parent="2" name="videoEntries"/>
+    <column id="23" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="24" parent="10" name="name">
+      <Position>2</Position>
+      <DataType>varchar(32)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="10" name="desc">
+      <Position>3</Position>
+      <DataType>varchar(64)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="26" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="27" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="11" name="userid">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="11" name="topicid">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="30" parent="11" name="content">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="11" name="like">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="32" parent="11" name="unlike">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="33" parent="11" name="reply_id">
+      <Position>7</Position>
+      <DataType>int(10) unsigned|0</DataType>
+    </column>
+    <column id="34" parent="11" name="created_at">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="35" parent="11" name="updated_at">
+      <Position>9</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="11" name="deleted_at">
+      <Position>10</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <index id="37" parent="11" name="entries_topicid_foreign">
+      <ColNames>topicid</ColNames>
+    </index>
+    <index id="38" parent="11" name="entries_userid_foreign">
+      <ColNames>userid</ColNames>
+    </index>
+    <key id="39" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="11" name="entries_userid_foreign">
+      <ColNames>userid</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="41" parent="11" name="entries_topicid_foreign">
+      <ColNames>topicid</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>topics</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="42" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="43" parent="12" name="imageentries_id_foreign">
+      <ColNames>id</ColNames>
+    </index>
+    <foreign-key id="44" parent="12" name="imageentries_id_foreign">
+      <ColNames>id</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>entries</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="45" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="46" parent="13" name="migration">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="47" parent="13" name="batch">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="48" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="50" parent="14" name="gonderi">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="14" name="date">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <key id="52" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="53" parent="15" name="email">
+      <Position>1</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="15" name="token">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="15" name="created_at">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <index id="56" parent="15" name="password_resets_email_index">
+      <ColNames>email</ColNames>
+    </index>
+    <index id="57" parent="15" name="password_resets_token_index">
+      <ColNames>token</ColNames>
+    </index>
+    <column id="58" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="16" name="userid">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="16" name="gonderiid">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="16" name="date">
+      <Position>4</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="62" parent="16" name="profilepage_gonderiid_foreign">
+      <ColNames>gonderiid</ColNames>
+    </index>
+    <index id="63" parent="16" name="profilepage_userid_foreign">
+      <ColNames>userid</ColNames>
+    </index>
+    <key id="64" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="65" parent="16" name="profilepage_userid_foreign">
+      <ColNames>userid</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="66" parent="16" name="profilepage_gonderiid_foreign">
+      <ColNames>gonderiid</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>pagePosts</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="67" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="17" name="content">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="69" parent="17" name="textentries_id_foreign">
+      <ColNames>id</ColNames>
+    </index>
+    <foreign-key id="70" parent="17" name="textentries_id_foreign">
+      <ColNames>id</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>entries</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="71" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="72" parent="18" name="catid">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="18" name="userid">
+      <Position>3</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="74" parent="18" name="name">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="75" parent="18" name="slug">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="76" parent="18" name="created_at">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <column id="77" parent="18" name="updated_at">
+      <Position>7</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <index id="78" parent="18" name="topics_catid_foreign">
+      <ColNames>catid</ColNames>
+    </index>
+    <index id="79" parent="18" name="topics_userid_foreign">
+      <ColNames>userid</ColNames>
+    </index>
+    <key id="80" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="81" parent="18" name="topics_catid_foreign">
+      <ColNames>catid</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>categories</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="82" parent="18" name="topics_userid_foreign">
+      <ColNames>userid</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="83" parent="19" name="senderid">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="84" parent="19" name="receiverid">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="19" name="date">
+      <Position>3</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="86" parent="19" name="message">
+      <Position>4</Position>
+      <DataType>varchar(230)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="87" parent="19" name="read">
+      <Position>5</Position>
+      <DataType>char(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;f&apos;</DefaultExpression>
+    </column>
+    <index id="88" parent="19" name="user_messages_receiverid_foreign">
+      <ColNames>receiverid</ColNames>
+    </index>
+    <index id="89" parent="19" name="user_messages_senderid_foreign">
+      <ColNames>senderid</ColNames>
+    </index>
+    <foreign-key id="90" parent="19" name="user_messages_senderid_foreign">
+      <ColNames>senderid</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="91" parent="19" name="user_messages_receiverid_foreign">
+      <ColNames>receiverid</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="92" parent="20" name="user_id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="93" parent="20" name="cat_id">
+      <Position>2</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="94" parent="20" name="user_subscribes_cat_id_foreign">
+      <ColNames>cat_id</ColNames>
+    </index>
+    <index id="95" parent="20" name="user_subscribes_user_id_foreign">
+      <ColNames>user_id</ColNames>
+    </index>
+    <foreign-key id="96" parent="20" name="user_subscribes_user_id_foreign">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="97" parent="20" name="user_subscribes_cat_id_foreign">
+      <ColNames>cat_id</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>categories</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="98" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="99" parent="21" name="username">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="100" parent="21" name="email">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="101" parent="21" name="password">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="102" parent="21" name="isadmin">
+      <Position>5</Position>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="103" parent="21" name="fullname">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="104" parent="21" name="remember_token">
+      <Position>7</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="105" parent="21" name="created_at">
+      <Position>8</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <column id="106" parent="21" name="updated_at">
+      <Position>9</Position>
+      <DataType>timestamp|0</DataType>
+    </column>
+    <index id="107" parent="21" name="users_email_unique">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="108" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="109" parent="21" name="users_email_unique">
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>users_email_unique</UnderlyingIndexName>
+    </key>
+    <column id="110" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>int(10) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="111" parent="22" name="videoentries_id_foreign">
+      <ColNames>id</ColNames>
+    </index>
+    <foreign-key id="112" parent="22" name="videoentries_id_foreign">
+      <ColNames>id</ColNames>
+      <RefSchemaName>teknida</RefSchemaName>
+      <RefTableName>entries</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>
