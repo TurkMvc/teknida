@@ -16,13 +16,13 @@ use App\Entry;
 use App\Topic;
 use App\Category;
 
-            Route::get('/user', function (){
-                $user = User::all();
+Route::get('/user', function (){
+    $user = User::all();
 
-                return $user;
-            });
+    return $user;
+});
 
-            Route::get('/entry', function(){
+Route::get('/entry', function(){
                /*
                 $entryler = User::find(1)->userEntry;
 
@@ -49,7 +49,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::post('/entry-Olustur','EntryController@entryOlustur');
+Route::post('/entry-olustur','SozlukController@post_entryEkle');
 
 
 
