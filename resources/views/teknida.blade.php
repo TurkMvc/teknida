@@ -89,15 +89,13 @@
                     </ul>
                     <div class="tab-content text-left">
                         <div id="home" class="tab-pane fade in active">
-
-
                             @php
-                            $current_page = 1;
-                            $topicler = \App\Topic::all();
+                                $current_page = 1;
+                                $topicler = \App\Topic::all();
 
-                            foreach ($topicler as $topic) {
-                                echo $topic->name . '<br>' ;
-                            }
+                                foreach ($topicler as $topic) {
+                                    echo $topic->name . '<br>' ;
+                                }
                             @endphp
                             <ul class="pager">
                                 <li class="previous @php echo $current_page == 1 ? "disabled":"" @endphp ">&larr; daha yeni</li>

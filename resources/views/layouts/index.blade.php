@@ -8,36 +8,27 @@
                     <div class="panel-body">
                         <!--
                             Contollerdan
-
                             $topic = App\Topic::all();
-
                             '<h2>' echo $entry->content .  '-' . $entry->entryUser->username . '<br>' ; '<\h2>'
-
-
-
-
                         -->
 
-
-
                     </div>
-                    @if (Auth::guest())
-                    @else
-
                 </div>
-                <div class="panel panel-default">
-                    <div class="entrypanel">
-                        <form name="sentMessage" id="entryolustur" action="entry-Olustur" method="post" novalidate>
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                @if (Auth::guest())
+                @else
+                    <div class="panel panel-default">
+                        <div class="entrypanel">
+                            <form name="sentMessage" id="entryolustur" action="entry-olustur" data-parsley-validate method="post" novalidate>
+                                {{csrf_field()}}
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                            <div class="form-group">
-                                <input type="text" name="icerik" class="form-control" id="icerik" required data-validation-required-message="ne düşünüyorsun...">
-                            </div>
-
-                            <button type="submit" class="btn btn-default">yolla</button>
-                        </form>
-                    @endif
-                    </div>
+                                <div class="form-group">
+                                    <input type="text" name="content" class="form-control" id="icerik" required data-validation-required-message="ne düşünüyorsun..." aria-required="true">
+                                </div>
+                                <button type="submit" class="btn btn-default">yolla</button>
+                            </form>
+                        </div>
+                @endif
                 </div>
             </div>
         </div>
