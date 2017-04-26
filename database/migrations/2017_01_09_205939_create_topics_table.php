@@ -14,6 +14,7 @@ class CreateTopicsTable extends Migration
             $table->integer('catid')->unsigned();
             $table->integer('userid')->unsigned();
             $table->string('name');
+            $table->string('slug');
             $table->timestamps();
             $table->foreign('catid')
                 ->references('id')->on('categories')

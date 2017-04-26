@@ -17,11 +17,13 @@ class CreateEntriesTable extends Migration
             $table->increments('id');
             $table->integer('userid')->unsigned();
             $table->integer('topicid')->unsigned();
+            $table->string('content');
             $table->integer('like')->default(0);
             $table->integer('unlike')->default(0);
-            $table->integer('reply_id')->unsigned();
+            $table->integer('reply_id')->unsigned()->nullable();
             $table->dateTime('created_at');
             $table->dateTime('updated_at');
+            $table->softDeletes();
             $table->foreign('userid')
                 ->references('id')->on('users');
             $table->foreign('topicid')
